@@ -6,16 +6,12 @@ import java.util.Arrays;
 
 public class Team {
 
-    private String name;
-    private Participant[] participants = new Participant[5];
+    private final String name;
+    private final Participant[] participants;
 
-    public Team(String name, Participant participant1, Participant participant2, Participant participant3, Participant participant4) {
+    public Team(String name, Participant[] participants) {
         this.name = name;
-        participants[0] = participant1;
-        participants[1] = participant2;
-        participants[2] = participant3;
-        participants[3] = participant3;
-        participants[4] = participant4;
+        this.participants = participants;
     }
 
     public String getName() {
@@ -29,7 +25,7 @@ public class Team {
     /**
      * Метод вывода информации обо всех членах команды
      */
-    public void showAllNames(){
+    public void showAllNames() {
         System.out.println("Имена участников: ");
         for (Participant participant : participants) {
             System.out.println(getName(participant));
@@ -40,10 +36,10 @@ public class Team {
     /**
      * Метод для вывода информации о членах команды, прошедших дистанцию
      */
-    public void showFinished(){
+    public void showFinished() {
         System.out.println("Участники, прошедшие дистанцию: ");
         for (Participant participant : participants) {
-            if(participant.isOnDistance()){
+            if (participant.isOnDistance()) {
                 System.out.println(getName(participant));
             }
         }
@@ -52,15 +48,16 @@ public class Team {
     /**
      * Метод возвращает имя участника. Независимо от того робот это или животное.
      * Этот метод позволяет не дубоировать код в showAllNames() и showFinished()
+     *
      * @param participant Принимает тип Participant
      * @return String Имя участника
      */
     public String getName(Participant participant) {
         String name = "";
-        if(participant instanceof Animal){
+        if (participant instanceof Animal) {
             Animal animal = (Animal) participant;
             name = animal.getName();
-        } else if (participant instanceof Robot){
+        } else if (participant instanceof Robot) {
             Robot robot = (Robot) participant;
             name = robot.getName();
         }
@@ -69,6 +66,7 @@ public class Team {
 
     /**
      * Возвращает строковое представление объекта типа Team
+     *
      * @return String
      */
     @Override

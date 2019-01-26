@@ -7,14 +7,23 @@ import ru.geekbrains.classes.obstacles.*;
 public class Application {
 
     public static void main(String[] args) {
-        Course c = new Course(5, 3, 7);
 
-        Participant cat1 = new Cat("Барсик", 10, 12, 0);
-        Participant dog = new Dog("Дружок", 20, 5, 15);
-        Participant cat2 = new Cat("Мурзик", 9, 14, 0);
-        Participant robot = new Robot("Вертер", 50, 50, 50);
+        Participant[] participants = new Participant[]{
+                new Cat("Барсик", 10, 12, 0),
+                new Dog("Дружок", 20, 5, 15),
+                new Cat("Мурзик", 9, 14, 0),
+                new Robot("Вертер", 50, 50, 50)
+        };
 
-        Team team = new Team("Зоотех", cat1, dog, cat2, robot);
+        Obstacle[] obstacles = new Obstacle[]{
+                new Cross(5),
+                new Wall(3),
+                new Water(7)
+        };
+
+        Course c = new Course(obstacles);
+
+        Team team = new Team("Зоотех", participants);
         c.doIt(team);
         team.showResults();
     }

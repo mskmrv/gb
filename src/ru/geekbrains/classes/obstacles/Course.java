@@ -4,15 +4,14 @@ import ru.geekbrains.classes.Participant;
 import ru.geekbrains.classes.Team;
 
 public class Course {
-    private Obstacle[] obstacles = new Obstacle[3];
 
-    public Course(int crossLength, int wallHeight, int waterLength) {
-        obstacles[0] = new Cross(crossLength);
-        obstacles[1] = new Wall(wallHeight);
-        obstacles[2] = new Water(waterLength);
+    private Obstacle[] obstacles;
+
+    public Course(Obstacle[] obstacles) {
+        this.obstacles = obstacles;
     }
 
-    public void doIt(Team team){
+    public void doIt(Team team) {
         System.out.println("Начали!");
         for (Participant participant : team.getParticipants()) {
             for (Obstacle obstacle : obstacles) {
