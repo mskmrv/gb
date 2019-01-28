@@ -11,7 +11,7 @@ public class ArrayHandler {
          * Если массив верхнего уровня имеет размер отличный от 4, то выбрасываем исключение
          */
         if (array.length != 4) {
-            throw new MySizeArrayException("Переданый массив имеет неправильный размер");
+            throw new MySizeArrayException("Переданный массив имеет неправильный размер");
         }
 
         /**
@@ -19,7 +19,7 @@ public class ArrayHandler {
          */
         for (String[] strings : array) {
             if (strings.length != 4) {
-                throw new MySizeArrayException("Переданый массив имеет неправильный размер");
+                throw new MySizeArrayException("Переданный массив имеет неправильный размер");
             }
         }
 
@@ -27,13 +27,14 @@ public class ArrayHandler {
          * Если размер массива правильный (4), обрабатываем его
          */
         int sum = 0;
-        for (String[] strings : array) {
-            for (String string : strings) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
                 try {
-                    sum += Integer.parseInt(string);
+                    String num = array[i][j];
+                    sum += Integer.parseInt(num);
                 } catch (NumberFormatException e) {
 //                    e.printStackTrace();
-                    throw new MyArrayDataException("Переданный массив хранит недопустимый тип данных");
+                    throw new MyArrayDataException("Переданный массив хранит недопустимый тип данных: ", i, j);
                 }
             }
         }

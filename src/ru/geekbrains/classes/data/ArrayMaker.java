@@ -1,10 +1,10 @@
 package ru.geekbrains.classes.data;
 
 public class ArrayMaker {
-    private final int FOUR = 4;
-    private final int FIVE = 5;
+    private static final int FOUR = 4;
+    private static final int FIVE = 5;
 
-    public String[][] getArrayFour() {
+    public static String[][] getArrayFour() {
         String[][] array = new String[FOUR][FOUR];
 
         array[0][0] = "1";
@@ -30,7 +30,7 @@ public class ArrayMaker {
         return array;
     }
 
-    public String[][] getArrayFourWithWrongString() {
+    public static String[][] getArrayFourWithWrongString() {
         String[][] array = new String[FOUR][FOUR];
 
         array[0][0] = "1";
@@ -56,7 +56,7 @@ public class ArrayMaker {
         return array;
     }
 
-    public String[][] getArrayFive(){
+    public static String[][] getArrayFive(){
         String[][] array = new String[FIVE][FIVE];
 
         array[0][0] = "1";
