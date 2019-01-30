@@ -1,25 +1,31 @@
 package ru.geekbrains.classes.data.exceptions;
 
 public class MyArrayDataException extends Exception{
-    private int i;
-    private int j;
 
-    public MyArrayDataException(String message, int i, int j) {
-        super(message);
-        this.i = i;
-        this.j = j;
+    private int rowIndex;
+    private int colIndex;
+    private String value;
+
+    public MyArrayDataException(int rowIndex, int colIndex, String value) {
+        this(rowIndex, colIndex, value, null); // !
     }
 
-    @Override
-    public String getMessage(){
-        return super.getMessage() + " " + i + " " + j;
+    public MyArrayDataException(int rowIndex, int colIndex, String value, Throwable cause) { // !
+        super(String.format("В ячейке массива [%d][%d] некорректное значение: %s", rowIndex, colIndex, value), cause);
+        this.rowIndex = rowIndex;
+        this.colIndex = colIndex;
+        this.value = value;
     }
 
-    public int getI() {
-        return i;
+    public int getRowIndex() {
+        return rowIndex;
     }
 
-    public int getJ() {
-        return j;
+    public int getColIndex() {
+        return colIndex;
+    }
+
+    public String getValue() {
+        return value;
     }
 }
