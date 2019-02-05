@@ -1,4 +1,4 @@
-package ru.geekbrains.classes;
+package ru.geekbrains.classes.lesson4;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
