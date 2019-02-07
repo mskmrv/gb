@@ -18,9 +18,9 @@ public class ChatWiwdow extends JFrame {
         JScrollPane scrollPane = new JScrollPane(text);
 
         JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+
         JTextField textField = new JTextField();
-        textField.setPreferredSize(new Dimension(200, 25));
-        textField.setFocusable(true);
         textField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -47,10 +47,12 @@ public class ChatWiwdow extends JFrame {
         });
 
         Box row = Box.createHorizontalBox();
+        row.add(Box.createHorizontalGlue());
         row.add(textField);
-//        row.add(Box.createHorizontalGlue()); // Почему-то не работает
-        row.add(Box.createHorizontalStrut(10));
+        row.add(Box.createHorizontalGlue());
+//        row.add(Box.createHorizontalStrut(10));
         row.add(button);
+        row.add(Box.createHorizontalGlue());
 
         panel.add(row);
 
@@ -58,6 +60,7 @@ public class ChatWiwdow extends JFrame {
         add(panel, BorderLayout.SOUTH);
 
         setVisible(true);
+        textField.requestFocus();
     }
 
     public void passText(JTextArea text, JTextField textField) {
