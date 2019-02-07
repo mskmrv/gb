@@ -1,9 +1,9 @@
-package ru.geekbrains.classes;
+package ru.geekbrains.classes.lesson2;
 
-import ru.geekbrains.classes.data.ArrayHandler;
-import ru.geekbrains.classes.data.ArrayMaker;
-import ru.geekbrains.classes.data.exceptions.MyArrayDataException;
-import ru.geekbrains.classes.data.exceptions.MySizeArrayException;
+import ru.geekbrains.classes.lesson2.data.ArrayHandler;
+import ru.geekbrains.classes.lesson2.data.ArrayMaker;
+import ru.geekbrains.classes.lesson2.data.exceptions.MyArrayDataException;
+import ru.geekbrains.classes.lesson2.data.exceptions.MySizeArrayException;
 
 public class Main {
 

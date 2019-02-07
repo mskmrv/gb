@@ -1,8 +1,8 @@
-package ru.geekbrains.classes.data;
+package ru.geekbrains.classes.lesson2.data;
 
 
-import ru.geekbrains.classes.data.exceptions.MyArrayDataException;
-import ru.geekbrains.classes.data.exceptions.MySizeArrayException;
+import ru.geekbrains.classes.lesson2.data.exceptions.MyArrayDataException;
+import ru.geekbrains.classes.lesson2.data.exceptions.MySizeArrayException;
 
 public class ArrayHandler {
     public int process(String[][] array) throws MySizeArrayException, MyArrayDataException {

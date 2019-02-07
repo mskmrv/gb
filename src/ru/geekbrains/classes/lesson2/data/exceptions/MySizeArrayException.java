@@ -1,4 +1,4 @@
-package ru.geekbrains.classes.data.exceptions;
+package ru.geekbrains.classes.lesson2.data.exceptions;
 
 public class MySizeArrayException extends Exception {
     public MySizeArrayException() {

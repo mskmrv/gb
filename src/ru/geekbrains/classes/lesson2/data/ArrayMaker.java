@@ -1,4 +1,4 @@
-package ru.geekbrains.classes.data;
+package ru.geekbrains.classes.lesson2.data;
 
 public class ArrayMaker {
     private static final int FOUR = 4;
