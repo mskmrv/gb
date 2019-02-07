@@ -5,9 +5,9 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ChatWiwdow extends JFrame {
+public class ChatWindow extends JFrame {
 
-    public ChatWiwdow() {
+    public ChatWindow() {
         super("Чат");
         initWindow();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

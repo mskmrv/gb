@@ -3,13 +3,13 @@ package ru.geekbrains.classes.lesson4;
 import javax.swing.*;
 
 public class App {
-    private static ChatWiwdow chatWiwdow;
+    private static ChatWindow chatWindow;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                chatWiwdow = new ChatWiwdow();
+                chatWindow = new ChatWindow();
             }
         });
     }
