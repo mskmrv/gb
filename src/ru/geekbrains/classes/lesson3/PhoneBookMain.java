@@ -1,4 +1,4 @@
-package ru.geekbrains.classes;
+package ru.geekbrains.classes.lesson3;
 
 public class PhoneBookMain {
     public static void main(String[] args) {

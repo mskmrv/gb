@@ -1,4 +1,4 @@
-package ru.geekbrains.classes;
+package ru.geekbrains.classes.lesson3;
 
 import java.util.ArrayList;
 import java.util.Collections;
