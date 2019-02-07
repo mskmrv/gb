@@ -6,42 +6,50 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class ChatWindow extends JFrame {
+    private final DefaultListModel<Message> listModel;
+    private JList<Message> list;
+    private JScrollPane scrollPane;
+    private JPanel panel;
+    private JTextField textField;
+    private JButton button;
 
     public ChatWindow() {
         super("Чат");
         initWindow();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        JTextArea text = new JTextArea();
-        text.setEditable(false);
-        text.setBorder(new TitledBorder("Сообщения"));
-        JScrollPane scrollPane = new JScrollPane(text);
+        listModel = new DefaultListModel<>();
+        list = new JList<>(listModel);
+        list.setCellRenderer(new MessageCellRenderer());
+        list.setBorder(new TitledBorder("Сообщения"));
+        scrollPane = new JScrollPane(list);
 
-        JPanel panel = new JPanel();
+        panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
-        JTextField textField = new JTextField();
+        textField = new JTextField();
         textField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    passText(text, textField);
+                    submitMessage("user", textField.getText());
                 }
             }
         });
 
-        JButton button = new JButton("Отправить");
+        button = new JButton("Отправить");
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                passText(text, textField);
+                submitMessage("user", textField.getText());
             }
         });
         button.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    passText(text, textField);
+                    submitMessage("user", textField.getText());
+                    textField.requestFocus();
                 }
             }
         });
@@ -50,7 +58,6 @@ public class ChatWindow extends JFrame {
         row.add(Box.createHorizontalGlue());
         row.add(textField);
         row.add(Box.createHorizontalGlue());
-//        row.add(Box.createHorizontalStrut(10));
         row.add(button);
         row.add(Box.createHorizontalGlue());
 
@@ -63,10 +70,12 @@ public class ChatWindow extends JFrame {
         textField.requestFocus();
     }
 
-    public void passText(JTextArea text, JTextField textField) {
-        StringBuilder sb = new StringBuilder(text.getText());
-        sb.append(textField.getText()).append("\n");
-        text.setText(sb.toString());
+    private void submitMessage(String user, String message) {
+        if (message == null || message.isEmpty()) {
+            return;
+        }
+        listModel.add(listModel.size(), new Message(user, message));
+        list.ensureIndexIsVisible(listModel.size() - 1);
         textField.setText("");
     }
 
