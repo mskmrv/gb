@@ -52,8 +52,8 @@ public class MultyThreading {
             e.printStackTrace();
         }
 
-        ar1 = arrayHandler1.getArr();
-        ar2 = arrayHandler1.getArr();
+        ar1 = arrayHandler1.arr;
+        ar2 = arrayHandler1.arr;
 
         System.arraycopy(ar1, 0, arr, 0, h);
         System.arraycopy(ar2, 0, arr, h, h);
