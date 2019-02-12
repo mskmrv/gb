@@ -17,7 +17,7 @@ public class WebServer {
                 try (BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                      PrintWriter output = new PrintWriter(socket.getOutputStream())) {
 
-                    while (!input.ready()); // Дождаться того, чтобы что-то пришло. Цикл ожидания
+                    while (!input.ready()); // Дождаться того, чтобы что-то пришло. Цикл ожидания.
                     while (input.ready()) {
                         System.out.println(input.readLine());
                     }
