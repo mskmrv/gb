@@ -3,13 +3,10 @@ package ru.geekbrains.classes.lesson6r.chatclasses;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.IOException;
 
-public class ChatWindow extends JFrame implements MessageSender {
+public class ChatWindow extends JFrame implements MessageSender{
     private final DefaultListModel<Message> listModel;
     private JList<Message> list;
     private JScrollPane scrollPane;
@@ -84,6 +81,7 @@ public class ChatWindow extends JFrame implements MessageSender {
             e.printStackTrace();
             System.exit(-1);
         }
+
 
         setVisible(true);
         textField.requestFocus();
